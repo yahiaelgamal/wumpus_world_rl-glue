@@ -4,24 +4,24 @@ package eg.edu.guc.met.experiment;
  * http://rl-glue-ext.googlecode.com/
  * brian@tannerpages.com
  * http://brian.tannerpages.com
- * 
+ *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
  *  You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  *  Unless required by applicable law or agreed to in writing, software
  *  distributed under the License is distributed on an "AS IS" BASIS,
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
- * 
+ *
  *  $Revision: 676 $
  *  $Date: 2009-02-08 18:15:04 -0700 (Sun, 08 Feb 2009) $
  *  $Author: brian@tannerpages.com $
  *  $HeadURL: http://rl-glue-ext.googlecode.com/svn/trunk/projects/codecs/Java/examples/skeleton-sample/RunAllSkeletonNoSockets.java $
- * 
+ *
  */
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -44,26 +44,26 @@ import eg.edu.guc.met.environment.WumpusWorldEnvironment;
 * portable and can be used together with any other language.
 */
 public class RunAllWumpusWorldNoSockets{
-	static int RUNS = 1000;
-		
-	public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException{
-		long t1 = System.currentTimeMillis();
-		//Create the Environment
-		EnvironmentInterface theEnvironment=new WumpusWorldEnvironment();
-		
-		AgentInterface theAgent = new WumpusWorldRandomAgent_intActions();
-		
-		LocalGlue localGlueImplementation=new LocalGlue(theEnvironment,theAgent);
-		RLGlue.setGlue(localGlueImplementation);
-		
-		//Run the main method of the Wumpus World Experiment, using the arguments were were passed
-		//This will run the experiment in the main thread.  The Agent and Environment will run
-		//locally, without sockets.
-		WumpusWorldExperiment.main(args);
-		System.out.println("RunAllWoWNoSockets Complete");
-		long t2 = (System.currentTimeMillis() - t1);
-		System.out.println("time is " + t2 + "ms");
-		System.out.println("average is " + t2/RUNS + "ms" );
-	}
+    static int RUNS = 1000;
+
+    public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException{
+        long t1 = System.currentTimeMillis();
+        //Create the Environment
+        EnvironmentInterface theEnvironment=new WumpusWorldEnvironment();
+
+        AgentInterface theAgent = new WumpusWorldRandomAgent_intActions();
+
+        LocalGlue localGlueImplementation=new LocalGlue(theEnvironment,theAgent);
+        RLGlue.setGlue(localGlueImplementation);
+
+        //Run the main method of the Wumpus World Experiment, using the arguments were were passed
+        //This will run the experiment in the main thread.  The Agent and Environment will run
+        //locally, without sockets.
+        WumpusWorldExperiment.main(args);
+        System.out.println("RunAllWoWNoSockets Complete");
+        long t2 = (System.currentTimeMillis() - t1);
+        System.out.println("time is " + t2 + "ms");
+        System.out.println("average is " + t2/RUNS + "ms" );
+    }
 
 }
